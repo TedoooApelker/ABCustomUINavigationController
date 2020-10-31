@@ -10,7 +10,7 @@
 #import "UIView+ABExtras.h"
 
 const NSTimeInterval TIME_ANIMATION = 0.3;
-const CGFloat PERSPECTIVE = -1.0 / 200.0;
+const CGFloat PERSPECTIVE = -0.001;
 const CGFloat ROTATION_ANGLE = M_PI_2;
 
 @interface CubeAnimator ()
