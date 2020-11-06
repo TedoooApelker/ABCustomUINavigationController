@@ -24,6 +24,15 @@
     return self;
 }
 
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        self.navigationDelegate = [[BaseNavigationControllerDelegate alloc] initWithAnimatedTransitioning:[self createAnimatedTransitioningUsed]];
+        self.delegate = self.navigationDelegate;
+    }
+    return self;
+}
+
 - (void)setDelegate:(id<UINavigationControllerDelegate>)delegate {
     if (!self.delegate) {
         [super setDelegate:delegate];
