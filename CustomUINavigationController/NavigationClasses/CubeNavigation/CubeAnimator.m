@@ -126,6 +126,7 @@ const CGFloat ROTATION_ANGLE = M_PI_2;
     }completion:^(BOOL finished) {
         [self cleanContext];
         self.completionBlock();
+        self.completionBlock = nil;
     }];
 }
 

@@ -29,6 +29,10 @@
     return YES;
 }
 
+-(void) dealloc {
+    printf("DEALLOC3\n");
+}
+
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskAll;
 }
@@ -38,8 +42,14 @@
 }
 
 - (IBAction)popToFirstViewController:(id)sender {
-    ViewController *firstVC = [self.navigationController.viewControllers objectAtIndex:0];
-    [self.navigationController popToViewController:firstVC animated:YES];
+//    self.navigationController.viewControllers =  [self.navigationController.viewControllers subarrayWithRange:NSMakeRange(1, self.navigationController.viewControllers.count - 1)];
+    UIViewController *firstVc = [[ViewController alloc] initViewController];
+
+    NSMutableArray *arr = [self.navigationController.viewControllers mutableCopy];
+    [arr insertObject:firstVc atIndex:0];
+    self.navigationController.viewControllers = arr;
+    [self.navigationController popViewControllerAnimated: true];
+//    [self.navigationController popToViewController:firstVC animated:YES];
 }
 
 - (IBAction)popToRootViewController:(id)sender {

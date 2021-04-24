@@ -30,6 +30,10 @@
     return YES;
 }
 
+-(void) dealloc {
+    printf("DEALLOC2\n");
+}
+
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     return UIInterfaceOrientationMaskAll;
 }

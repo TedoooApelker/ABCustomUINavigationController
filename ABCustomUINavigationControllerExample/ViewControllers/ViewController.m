@@ -33,6 +33,10 @@
     [self.navigationController setNavigationBarHidden:YES];
 }
 
+-(void) dealloc {
+    printf("DEALLOC\n");
+}
+
 - (BOOL)shouldAutorotate {
     return NO;
 }
@@ -49,6 +53,7 @@
 - (IBAction)pushToThirthViewController:(id)sender {
     ThirthViewController *thirthVC = [[ThirthViewController alloc] initViewController];
     [self.navigationController pushViewController:thirthVC animated:YES];
+    self.navigationController.viewControllers =  [self.navigationController.viewControllers subarrayWithRange:NSMakeRange(1, self.navigationController.viewControllers.count - 1)];
 }
 
 @end
